@@ -1,0 +1,31 @@
+{
+  "name": "skillproof-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SkillProof: Multi-Source Evidence-Based Developer Capability Verification Platform",
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend",
+    "sandbox-runner"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspaces",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "dev:runner": "npm run dev -w sandbox-runner",
+    "mongo:local": "tsx scripts/start-local-mongo.ts",
+    "spike:parser": "tsx scripts/spike-java-parser.ts",
+    "check-prereqs": "./scripts/check-prereqs.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "mongodb-memory-server": "^11.3.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

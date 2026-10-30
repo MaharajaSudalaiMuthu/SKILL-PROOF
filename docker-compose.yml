@@ -1,0 +1,40 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: skillproof-mongodb
+    restart: unless-stopped
+    command: ["--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  mongodb-init:
+    image: mongo:7.0
+    container_name: skillproof-mongodb-init
+    restart: "no"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        echo "Checking MongoDB replica set status..."
+        STATUS=$$(mongosh --host mongodb:27017 --eval "rs.status().ok" --quiet 2>/dev/null || echo "0")
+        if [ "$$STATUS" != "1" ]; then
+          echo "Initiating single-node replica set rs0..."
+          mongosh --host mongodb:27017 --eval 'rs.initiate({ _id: "rs0", members: [{ _id: 0, host: "localhost:27017" }] })'
+          echo "Replica set initialized successfully."
+        else
+          echo "Replica set rs0 is already initialized."
+        fi
+
+volumes:
+  mongo_data:

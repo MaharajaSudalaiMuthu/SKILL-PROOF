@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+coverage/
+.tsbuildinfo
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+keys/
+credentials/
+
+# IDE and OS
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Local workspace tools & temp directories
+.tools/
+tmp/
+temp/
+workspaces/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker & local db volumes
+mongo_data/
+.local-mongo-uri
+

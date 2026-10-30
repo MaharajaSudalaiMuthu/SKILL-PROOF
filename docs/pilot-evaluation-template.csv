@@ -1,0 +1,9 @@
+subject_id,skill_slug,expert_level,confidence_1_to_5,notes
+SUBJ_EXAMPLE1,rest-controller-design,OBSERVED,5,Demonstrated consistent @RestController and @GetMapping patterns in commit history
+SUBJ_EXAMPLE1,jpa-hibernate-persistence,SUPPORTED,4,Passed scenario assessment with clean entity mappings and relationship handling
+SUBJ_EXAMPLE1,spring-security-configuration,CLAIMED,3,Declared in profile but no static evidence found in analyzed repository
+SUBJ_EXAMPLE1,jwt-issuance-validation,VERIFIED,5,Passed practical coding challenge test suite for JWT bearer token validation
+SUBJ_EXAMPLE1,structured-exception-handling,OBSERVED,4,Clean @ControllerAdvice and @ExceptionHandler methods with ErrorResponse DTOs
+SUBJ_EXAMPLE1,unit-tests-meaningful-assertions,SUPPORTED,4,Effective MockMvc and JUnit test assertions in service layer
+SUBJ_EXAMPLE1,transaction-management,NONE,5,No @Transactional annotations or transactional boundaries observed
+SUBJ_EXAMPLE1,input-validation,SUPPORTED,4,Consistent @Valid and Bean Validation constraints on request bodies
